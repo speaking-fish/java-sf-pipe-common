@@ -24,7 +24,7 @@ import static com.speakingfish.common.value.util.Values.*;
 public class Util {
 
     public static final Creator<DateFormat, String> CREATOR_SimpleDateFormat = new Creator<DateFormat, String>() {
-        @Override public DateFormat create(String params) {
+        public DateFormat apply(String params) {
             return new SimpleDateFormat(params);
         }};
     

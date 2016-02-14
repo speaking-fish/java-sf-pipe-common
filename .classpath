@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-function-lt18"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-value"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common-value-util"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/java-sf-common"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
