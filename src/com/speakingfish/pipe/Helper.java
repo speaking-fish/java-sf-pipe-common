@@ -34,7 +34,7 @@ public class Helper {
         }
     }
 
-    public static byte internalRead(InputStream src) throws WrappedEOFException {
+    public static byte internalRead(InputStream src) throws WrappedIOException {
         final int result;
         try {
             result = src.read();
