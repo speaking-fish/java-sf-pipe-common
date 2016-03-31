@@ -26,6 +26,46 @@ sourceSets {
     }
 }
 
+task loggerJar(dependsOn: classes, type: Jar) {
+    classifier = 'logger'
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+    
+    manifest {
+        attributes(
+            'Implementation-Title': 'Speakingfish common pipe utilities - Logger',
+            'Implementation-Version': version,
+            'Main-Class': 'com.speakingfish.pipe.util.Logger'
+        )
+    }
+    from {
+        (configurations.runtime.files + file('build/libs/java-sf-pipe-common-' + version + '.jar')).collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task wrapJar(dependsOn: classes, type: Jar) {
+    classifier = 'wrap'
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+    
+    manifest {
+        attributes(
+            'Implementation-Title': 'Speakingfish common pipe utilities - Wrap',
+            'Implementation-Version': version,
+            'Main-Class': 'com.speakingfish.pipe.util.Wrap'
+        )
+    }
+    from {
+        (configurations.runtime.files + file('build/libs/java-sf-pipe-common-' + version + '.jar')).collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+//subprojects {
+//    compile project('logger')
+//}
+
+artifacts {
+    archives loggerJar
+}
+
 dependencies {
     compile project(':java-sf-common-compatibility')
     compile project(':java-sf-common-function')
